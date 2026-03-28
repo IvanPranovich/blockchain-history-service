@@ -1,6 +1,57 @@
-@BlockchainHistoryService_HostAddress = http://localhost:5258
+@host = http://localhost:5258
 
-GET {{BlockchainHistoryService_HostAddress}}/weatherforecast/
-Accept: application/json
+### Get all todo lists
+GET {{host}}/api/todolists
+
+###
+
+### Get todo list by ID
+GET {{host}}/api/todolists/{{todoListId}}
+
+###
+
+### Create a todo list
+POST {{host}}/api/todolists
+Content-Type: application/json
+
+{
+  "title": "My First List",
+  "description": "A sample todo list"
+}
+
+###
+
+### Delete a todo list
+DELETE {{host}}/api/todolists/{{todoListId}}
+
+###
+
+### Create a todo item
+POST {{host}}/api/todo-lists/{{todoListId}}/items
+Content-Type: application/json
+
+{
+  "title": "Buy milk"
+}
+
+###
+
+### Update a todo item
+PUT {{host}}/api/todo-lists/{{todoListId}}/items/{{itemId}}
+Content-Type: application/json
+
+{
+  "title": "Buy oat milk"
+}
+
+###
+
+### Toggle a todo item (complete/uncomplete)
+PATCH {{host}}/api/todo-lists/{{todoListId}}/items/{{itemId}}/toggle
+
+###
+
+### Delete a todo item
+DELETE {{host}}/api/todo-lists/{{todoListId}}/items/{{itemId}}
 
 ###
