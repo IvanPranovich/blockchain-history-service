@@ -1,3 +1,4 @@
+using BlockchainHistoryService.Domain.Interfaces;
 using BlockchainHistoryService.Domain.Interfaces.Repositories;
 using BlockchainHistoryService.Infrastructure.Persistence;
 using BlockchainHistoryService.Infrastructure.Repositories;
@@ -15,6 +16,8 @@ public static class DependencyInjection
 
         services.AddScoped<ITodoListRepository, TodoListRepository>();
         services.AddScoped<ITodoItemRepository, TodoItemRepository>();
+        services.AddScoped<IBlockchainSnapshotRepository, BlockchainSnapshotRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }
